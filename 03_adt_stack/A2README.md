@@ -8,6 +8,8 @@ topIndex will hold the -1 value after teh contructor runs. In the array it's fro
 For the push, it first moves the TopIndex up by one, then it stores the value into the data at the TopIndex Slot. Swapping that order would break the stack because if you were to write first, if the slot is at -1, there slot doesn't exist for anything to write on.
 3. Give the time complexity of push, pop, peek, isEmpty, isFull, and size, individually, in Big-O. For each one, justify it by describing what your code actually does, not by naming the general rule for stacks.
 
+They are all O(1). None of these fuction conatains a loop and they all deal with single individual slots per run. It doesn't matter if it has 3 data to put it, it all runs 1 at a time.
+
 4. Exactly what happens in your code when push is called while the stack is full? State what prints (if anything), what gets returned (if anything), and whether topIndex changes. Then say why you chose that behavior.
 
 5. Exactly what happens when pop or peek is called while the stack is empty? Same level of detail as above.

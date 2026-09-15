@@ -1,8 +1,24 @@
-Sep 15, 2026 — main.cpp:18 error: no member named 'top' in 'Stack'; did you mean 'pop'?
-Cause: rewrote Stack.h to use peek() but main.cpp still called the old vector-version top().
-Fix: changed both s.top() calls to s.peek().
 
-Sep 15, 2026 — No compiler error. pop() returned the wrong value silently.
-Cause: returned data[topIndex] after already decrementing topIndex, so it handed back
-the element below the one being popped. Last pop would have read data[-1], out of bounds.
-Fix: returned the saved local poppedValue instead.
+# ERRORLOG
+
+## 2026-09-15 — compiler error
+
+**Error text:**
+/Users/phongtran/cs210/CS210CPPRepo/03_adt_stack/main.cpp:18:31: error: no member named 'top' in 'Stack'; did you mean 'pop'?
+18 |     std::cout << "Top: " << s.peek() << std::endl;
+|                               ^~~
+
+
+**What caused it:**
+main.cpp was written on the old interface. 
+
+
+
+**How I fixed it:**
+change teh call to s.peek(), changing the public interface breaks every file underneath it
+
+## 2026-09-15 — wrong output
+
+got 20 instead of 30, compiled fine but got the wrong result.
+was returning data[topIndex] but topIndex already went down. 
+fixed by returning poppedValue
