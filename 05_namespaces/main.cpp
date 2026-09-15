@@ -32,6 +32,8 @@ int main() {
     // to guess which one you meant. That's the namespace system
     // working as designed.
 
+    using namespace cs210;
+
     return 0;
 }
 
